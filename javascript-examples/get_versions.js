@@ -2,7 +2,7 @@
 // 
 // Code borrowed and extended from https://developer.algorand.org/docs/javascript-sdk
 //
-// Example using PureStake token object 
+// Example using PureStake token object, replacing the token as a string
 //
 
 const algosdk = require('algosdk');

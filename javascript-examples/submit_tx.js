@@ -2,7 +2,7 @@
 // 
 // Code borrowed and extended from https://developer.algorand.org/docs/javascript-sdk
 //
-// Example header decelartion for the binary transaction submission
+// Requires header 'content-type' for the binary transaction submission
 // Both algodclient objects are necessary, as the params call is application/json and the SDK does not allow by request header assignment
 // The TestNet account in this example is U2VHSZL3LNGATL3IBCXFCPBTYSXYZBW2J4OGMPLTA4NA2CB4PR7AW7C77E - PureStake cannot guarantee any funds will exist to execute this example
 // To add Algo's - https://bank.testnet.algorand.network
