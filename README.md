@@ -13,6 +13,7 @@ The Python SDK may be used, with modifications to the underlying library until a
 
 * [GET ledger version](javascript-examples/get_versions.js)
 * [POST transaction](javascript-examples/submit_tx.js)
+* [GET Transaction By ID](javascript-examples/get_tx.js)
 
 
 ## Other Resources
