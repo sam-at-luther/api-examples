@@ -16,8 +16,8 @@ There are some requirements for using the PureStake API, and only the JavaScript
 
 ## Example using Algorand Python SDK
 
-* [Example Customer Header](python-examples/example_customer_header.py)
-* [Complete example with POST transaction](python-examples/complete_example.py)
+* [Example GET](python-examples/example_customer_header.py)
+* [Example POST transaction](python-examples/complete_example.py)
 
 ## Other Resources
 
