@@ -16,12 +16,12 @@ There are some requirements for using the PureStake API, and only the JavaScript
 
 ## Example using Algorand Python SDK
 
-* [Example GET](python-examples/example_customer_header.py)
+* [Example GET](python-examples/example_custom_header.py)
 * [Example POST transaction](python-examples/complete_example.py)
 
 ## Example using Algorand Go SDK
 
-* [Example GET](go-examples/example_customer_header.go)
+* [Example GET](go-examples/example_custom_header.go)
 * [Example POST transaction](go-examples/submit_tx.go)
 
 ## Other Resources
