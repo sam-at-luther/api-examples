@@ -8,8 +8,8 @@
 package main
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 	"github.com/algorand/go-algorand-sdk/client/algod"
 )
 
@@ -37,7 +37,7 @@ func main() {
 	fmt.Printf("algod last round: %d\n", nodeStatus.LastRound)
 	fmt.Printf("algod time since last round: %d\n", nodeStatus.TimeSinceLastRound)
 	fmt.Printf("algod catchup: %d\n", nodeStatus.CatchupTime)
-	fmt.Printf("algod latest version: %s\n", nodeStatus.LastVersion)	
+	fmt.Printf("algod latest version: %s\n", nodeStatus.LastVersion)
 
 	// Fetch block information
 	lastBlock, err := algodClient.Block(nodeStatus.LastRound)
