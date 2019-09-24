@@ -5,7 +5,7 @@ PureStake provides access to the Algorand TestNet and MainNet Ledgers over REST 
 
 The ledgers available are complete, indexed, and in a redundant, load balanced configuration under close monitoring.  
 
-There are some requirements for using the PureStake API, and only the JavaScript SDK and Python SDK are fully supported today. 
+There are some requirements for using the PureStake API, and only the JavaScript, Go and Python SDKs are fully supported today. 
 
 
 ## Example using Algorand JavaScript SDK
@@ -18,6 +18,11 @@ There are some requirements for using the PureStake API, and only the JavaScript
 
 * [Example GET](python-examples/example_customer_header.py)
 * [Example POST transaction](python-examples/complete_example.py)
+
+## Example using Algorand Go SDK
+
+* [Example GET](go-examples/example_customer_header.go)
+* [Example POST transaction](go-examples/submit_tx.go)
 
 ## Other Resources
 
