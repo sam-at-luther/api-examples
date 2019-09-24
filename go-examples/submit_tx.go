@@ -4,9 +4,9 @@ import (
 	"fmt"
 
 	"github.com/algorand/go-algorand-sdk/client/algod"
-	"github.com/algorand/go-algorand-sdk/transaction"
-	"github.com/algorand/go-algorand-sdk/mnemonic"
 	"github.com/algorand/go-algorand-sdk/crypto"
+	"github.com/algorand/go-algorand-sdk/mnemonic"
+	"github.com/algorand/go-algorand-sdk/transaction"
 )
 
 const algodAddress = "https://testnet-algorand.api.purestake.io/ps1"
@@ -28,7 +28,6 @@ func main() {
 		return
 	}
 	fmt.Println("Algod client created")
-
 
 	// Recover private key from the mnemonic
 	fromAddrPvtKey, err := mnemonic.ToPrivateKey(mn)
