@@ -23,6 +23,7 @@ There are some requirements for using the PureStake API, and only the JavaScript
 
 * [Example GET](go-examples/example_custom_header.go)
 * [Example POST transaction](go-examples/submit_tx.go)
+* [Example POST transaction with KMD](go-examples/signsubmit.go)
 
 ## Other Resources
 
