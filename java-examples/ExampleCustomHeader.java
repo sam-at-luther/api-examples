@@ -2,9 +2,8 @@ package com.purestake.algosdk.example;
 
 import java.math.BigInteger;
 
-import com.algorand.algosdk.algo3d.client.AlgodClient;
+import com.algorand.algosdk.algod.client.AlgodClient;
 import com.algorand.algosdk.algod.client.api.AlgodApi;
-import com.algorand.algosdk.algod.client.auth.ApiKeyAuth;
 import com.algorand.algosdk.algod.client.model.Block;
 import com.algorand.algosdk.algod.client.model.NodeStatus;
 
@@ -12,16 +11,12 @@ public class CustomHeaderExample {
 
     public static void main(String[] args) {
         final String ALGOD_API_ADDR = "https://testnet-algorand.api.purestake.io/ps1";
-        final String ALGOD_API_TOKEN = "";
                 
         AlgodClient client = new AlgodClient();
         
         client.addDefaultHeader("X-API-Key", "......");
         
         client.setBasePath(ALGOD_API_ADDR);
-        // Configure API key authorization: api_key
-        ApiKeyAuth api_key = (ApiKeyAuth) client.getAuthentication("api_key");
-        api_key.setApiKey(ALGOD_API_TOKEN);
 
         AlgodApi algodApiInstance = new AlgodApi(client);
         
