@@ -25,6 +25,10 @@ There are some requirements for using the PureStake API, and only the JavaScript
 * [Example POST transaction](go-examples/submit_tx.go)
 * [Example POST transaction with KMD](go-examples/signsubmit.go)
 
+## Example using Algorand Java SDK
+
+* [Example GET](java-examples/ExampleCustomHeader.java)
+
 ## Other Resources
 
 * [PureStake developer site](https://deverloper.purestake.io)
