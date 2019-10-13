@@ -18,6 +18,7 @@ There are some requirements for using the PureStake API, and only the JavaScript
 
 * [Example GET](python-examples/example_custom_header.py)
 * [Example POST transaction](python-examples/complete_example.py)
+* [algo_vanity.py](python-examples/algo_vanity.py) - Vanity address generator for Algorand.
 
 ## Example using Algorand Go SDK
 
