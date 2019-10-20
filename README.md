@@ -29,6 +29,7 @@ There are some requirements for using the PureStake API, and only the JavaScript
 ## Example using Algorand Java SDK
 
 * [Example GET](java-examples/ExampleCustomHeader.java)
+* [Example POST transaction](java-examples/SubmitTx.java)
 
 ## Other Resources
 
