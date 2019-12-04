@@ -33,7 +33,7 @@ There are some requirements for using the PureStake API, and only the JavaScript
 
 ## Other Resources
 
-* [PureStake developer site](https://deverloper.purestake.io)
+* [PureStake developer site](https://developer.purestake.io)
 * [Algorand developer site](https://developer.algorand.com)
 
 
