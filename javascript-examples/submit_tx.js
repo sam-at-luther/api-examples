@@ -13,19 +13,9 @@ const algosdk = require('algosdk');
 const baseServer = "https://testnet-algorand.api.purestake.io/ps1"
 const port = "";
 
-// Create client for transaction POST
-const postToken = {
-    'X-API-key' : 'B3SU4KcVKi94Jap2VXkK83xx38bsv95K5UZm2lab',
-    'Content-Type' : 'application/x-binary'
-}
-
-const postAlgodclient = new algosdk.Algod(postToken, baseServer, port); // Binary content type
-
-//Create client for GET of Transaction parameters 
 const token = {
     'X-API-key' : 'B3SU4KcVKi94Jap2VXkK83xx38bsv95K5UZm2lab',
 }
-
 
 const algodclient = new algosdk.Algod(token, baseServer, port); 
 
@@ -51,8 +41,11 @@ console.log(recoveredAccount.addr);
         "note": new Uint8Array(0),
     };
 
+    const txHeaders = {
+        'Content-Type' : 'application/x-binary'
+    }
     let signedTxn = algosdk.signTransaction(txn, recoveredAccount.sk);
-    let tx = (await postAlgodclient.sendRawTransaction(signedTxn.blob));
+    let tx = (await algodclient.sendRawTransaction(signedTxn.blob, txHeaders));
     console.log("Transaction : " + tx.txId);
 })().catch(e => {
     console.log(e);
