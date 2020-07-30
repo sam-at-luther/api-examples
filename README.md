@@ -14,6 +14,10 @@ There are some requirements for using the PureStake API, and only the JavaScript
 * [POST transaction](javascript-examples/submit_tx.js)
 * [GET Transaction By ID](javascript-examples/get_tx.js)
 
+## Example using HTML and Algodsdk.min.js
+
+* [Algod v1, v2 and Indexer clients](javascript-examples/html-client-declaration.html)
+
 ## Example using Algorand Python SDK
 
 * [Example GET](python-examples/example_custom_header.py)
