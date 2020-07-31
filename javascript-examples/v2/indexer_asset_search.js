@@ -1,4 +1,5 @@
-// Demonstrate an Indexer Asset Search with pagination 
+// Algorand Indexer (v2) example 
+// Demonstrate an Indexer Asset Search with pagination on TestNet
 
 const algosdk = require('algosdk');
 const baseServer = "https://testnet-algorand.api.purestake.io/idx2";

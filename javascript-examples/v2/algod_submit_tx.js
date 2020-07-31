@@ -1,3 +1,6 @@
+// Algorand Algod (v2) example 
+// Send transaction on TestNet
+
 const algosdk = require('algosdk');
 const baseServer = "https://mainnet-algorand.api.purestake.io/ps2";
 const port = "";
