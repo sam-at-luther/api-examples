@@ -1,11 +1,11 @@
-from algosdk import encoding
-from algosdk import transaction
-from algosdk import kmd
-from algosdk import algod
-from algosdk import account
-from algosdk import mnemonic
-import json
+# 1.4.0 update to add flat-fee=True to avoid bug in the SDK
 
+import json
+import time
+import base64
+from algosdk import algod
+from algosdk import mnemonic
+from algosdk import transaction
 
 # Setup HTTP client w/guest key provided by PureStake
 algod_token = 'B3SU4KcVKi94Jap2VXkK83xx38bsv95K5UZm2lab'
@@ -25,14 +25,14 @@ gen = params["genesisID"]
 gh = params["genesishashb64"]
 first_valid_round = params["lastRound"]
 last_valid_round = first_valid_round + 1000
-fee = params["fee"]
+fee = params["minFee"]
 send_amount = 1
-
+print(params)
 existing_account = account_public_key
 send_to_address = 'AEC4WDHXCDF4B5LBNXXRTB3IJTVJSWUZ4VJ4THPU2QGRJGTA3MIDFN3CQA'
 
 # Create and sign transaction
-tx = transaction.PaymentTxn(existing_account, fee, first_valid_round, last_valid_round, gh, send_to_address, send_amount)
+tx = transaction.PaymentTxn(existing_account, fee, first_valid_round, last_valid_round, gh, send_to_address, send_amount, flat_fee=True)
 signed_tx = tx.sign(account_private_key)
 
 # Function from Algorand Inc. - utility for waiting on a transaction confirmation
