@@ -13,6 +13,8 @@ There are some requirements for using the PureStake API, and only the JavaScript
 * [GET ledger version](javascript-examples/get_versions.js)
 * [POST transaction](javascript-examples/submit_tx.js)
 * [GET Transaction By ID](javascript-examples/get_tx.js)
+* [GET v2 Indexer Block](javascript-examples/v2/indexer_block.js)
+* [POST v2 Transaction](javascript-examples/v2/algod_submit_tx.js)
 
 ## Example using HTML and Algodsdk.min.js
 
@@ -22,6 +24,7 @@ There are some requirements for using the PureStake API, and only the JavaScript
 
 * [Example GET](python-examples/example_custom_header.py)
 * [Example POST transaction](python-examples/complete_example.py)
+* [Example v2 POST transaction](python-examples/complete_example_v2.py)
 * [algo_vanity.py](python-examples/algo_vanity.py) - Vanity address generator for Algorand.
 
 ## Example using Algorand Go SDK
