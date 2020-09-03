@@ -1,4 +1,6 @@
 # 1.4.0 update to add flat-fee=True to avoid bug in the SDK
+# In 1.4.0 it is no longer necessary to declare the content type of the send_transaction
+# headers={'content-type': 'application/x-binary'}
 
 import json
 import time
@@ -49,7 +51,7 @@ def wait_for_confirmation( algodclient, txid ):
            algodclient.status_after_block(last_round)
 
 try:
-    tx_confirm = algodclient.send_transaction(signed_tx, headers={'content-type': 'application/x-binary'})
+    tx_confirm = algodclient.send_transaction(signed_tx)
     wait_for_confirmation(algodclient, txid = signed_tx.transaction.get_txid())
 except Exception as e:
     print(e)
