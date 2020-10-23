@@ -30,7 +30,7 @@ public class SubmitTx {
         }
     }
 
-    public static void main( String[] args ) throws Exception {
+    public static void main(String[] args) throws Exception {
         final String ALGOD_API_ADDR = "https://testnet-algorand.api.purestake.io/ps2";
         final int  ALGOD_PORT = 443;
         final String ALGOD_API_TOKEN = "";
