@@ -29,18 +29,25 @@ There are some requirements for using the PureStake API, and only the JavaScript
 
 ## Example using Algorand Go SDK
 
-* [Example GET](go-examples/example_custom_header.go)
-* [Example POST transaction](go-examples/submit_tx.go)
-* [Example POST transaction with KMD](go-examples/signsubmit.go)
+* [GET](go-examples/example_custom_header.go)
+* [POST transaction](go-examples/submit_tx.go)
+* [POST transaction with KMD](go-examples/signsubmit.go)
+* [GET v2](go-examples/v2/example_custom_header.go)
+* [GET v2 Indexer](go-examples/v2/submit_tx.go)
+* [POST v2 Transaction](go-examples/v2/indexer_search_asset.go)
 
 ## Example using Algorand Java SDK
 
-* [Example GET](java-examples/ExampleCustomHeader.java)
-* [Example POST transaction](java-examples/SubmitTx.java)
+* [GET](java-examples/ExampleCustomHeader.java)
+* [POST transaction](java-examples/SubmitTx.java)
+* [GET v2](java-examples/v2/ExampleCustomHeader.java)
+* [GET v2 Indexer](java-examples/v2/IndexerAssetSearch.java)
+* [POST v2 Transaction](java-examples/v2/SubmitTx.java)
 
 ## Other Resources
 
 * [PureStake developer site](https://developer.purestake.io)
 * [Algorand developer site](https://developer.algorand.com)
+* [Algorand v2 migration guide](https://developer.algorand.org/docs/reference/sdks/migration/)
 
 
