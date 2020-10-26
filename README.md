@@ -33,8 +33,8 @@ There are some requirements for using the PureStake API, and only the JavaScript
 * [POST transaction](go-examples/submit_tx.go)
 * [POST transaction with KMD](go-examples/signsubmit.go)
 * [GET v2](go-examples/v2/example_custom_header.go)
-* [GET v2 Indexer](go-examples/v2/submit_tx.go)
-* [POST v2 Transaction](go-examples/v2/indexer_search_asset.go)
+* [GET v2 Indexer](go-examples/v2/indexer_search_asset.go)
+* [POST v2 Transaction](go-examples/v2/submit_tx.go)
 
 ## Example using Algorand Java SDK
 
