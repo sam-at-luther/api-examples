@@ -2,7 +2,7 @@
 // Send transaction on TestNet
 
 const algosdk = require('algosdk');
-const baseServer = "https://mainnet-algorand.api.purestake.io/ps2";
+const baseServer = "https://testnet-algorand.api.purestake.io/ps2";
 const port = "";
 
 const token = {
