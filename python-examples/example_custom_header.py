@@ -4,6 +4,9 @@
 # default "X-Algo-API-Token". This is done by using a dict with our custom
 # key, instead of a string, as the token.
 
+# DEPRECATED 12/30/20 with Algod v1 API Shutdown
+
+
 from algosdk import algod
 
 algod_address = "https://testnet-algorand.api.purestake.io/ps1"

@@ -1,71 +1,63 @@
 <html>
-<head>
+  <head>
     <title>Example HTML/JS Algorand SDK Clients</title>
-    
+
     <!-- 1.6.2 version -->
     <script src="algosdk.min.js"></script>
-    
+
     <script>
-        const legacyServer  = "https://testnet-algorand.api.purestake.io/ps1";
-        const newServer    = "https://testnet-algorand.api.purestake.io/ps2";
-        const indexServer   = "https://testnet-algorand.api.purestake.io/idx2";
-        const port          = "";
-        const token         = { 'X-API-key' : 'B3SU4KcVKi94Jap2VXkK83xx38bsv95K5UZm2lab'}
+      const newServer = 'https://testnet-algorand.api.purestake.io/ps2';
+      const indexServer = 'https://testnet-algorand.api.purestake.io/idx2';
+      const port = '';
+      const token = { 'X-API-key': 'B3SU4KcVKi94Jap2VXkK83xx38bsv95K5UZm2lab' };
 
-        let algodClient     = new algosdk.Algod(token, legacyServer, port);
-        let algodClientV2   = new algosdk.Algodv2(token, newServer, port);
-        let indexerClient   = new algosdk.Indexer(token, indexServer, port);
-        
-    async function getParams(){
-            
-            let response = await algodClientV2.getTransactionParams().do();
-            console.log(response)
-            document.getElementById("examples").value = JSON.stringify(response);
-        }
+      let algodClientV2 = new algosdk.Algodv2(token, newServer, port);
+      let indexerClient = new algosdk.Indexer(token, indexServer, port);
 
-        async function getStatus(){
-            let response = await algodClientV2.status().do();
-            console.log(response)
-            document.getElementById("examples").value = JSON.stringify(response);
-        }
+      async function getParams() {
+        let response = await algodClientV2.getTransactionParams().do();
+        console.log(response);
+        document.getElementById('examples').value = JSON.stringify(response);
+      }
 
-        async function getStatusV1(){
-            let response = await algodClient.status();
-            console.log(response)
-            document.getElementById("examples").value = JSON.stringify(response);
-        }
+      async function getStatus() {
+        let response = await algodClientV2.status().do();
+        console.log(response);
+        document.getElementById('examples').value = JSON.stringify(response);
+      }
 
-        async function indexerAsset() {
-            let assetInfo = await indexerClient.searchForAssets().limit(1).name('latikum22').do()
-            console.log(assetInfo.assets)
-            document.getElementById("examples").value = JSON.stringify(assetInfo.assets[0]);
-        }
+      async function indexerAsset() {
+        let assetInfo = await indexerClient
+          .searchForAssets()
+          .limit(1)
+          .name('latikum22')
+          .do();
+        console.log(assetInfo.assets);
+        document.getElementById('examples').value = JSON.stringify(
+          assetInfo.assets[0]
+        );
+      }
+    </script>
 
-</script>
+    <style>
+      .log {
+        font-size: 18px;
+        width: 50%;
+        padding: 1%;
+        height: 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Demonstrate the use of the Algod v1, v2 and Indexer APIs</h2>
 
-<style>
-        .log {
-            font-size: 18px;
-            width:50%;
-            padding:1%;
-            height: 40%;
-        }
-</style>
+    <div>
+      <button onclick="getParams()">Get v2 Params</button>
+      <button onclick="getStatus()">Get v2 Status</button>
+      <button onclick="indexerAsset()">Indexer Asset</button>
+    </div>
 
-</head>
-<body>
-
-<h2>Demonstrate the use of the Algod v1, v2 and Indexer APIs</h2>
-
-<div>
-    <button onclick="getStatusV1()">Get v1 Status</button>
-    <button onclick="getParams()">Get v2 Params</button>
-    <button onclick="getStatus()">Get v2 Status</button>
-    <button onclick="indexerAsset()">Indexer Asset</button>
-</div>
-
-<p>Example output</p>
-<textarea id="examples" class="log"></textarea>
-</body>
-
+    <p>Example output</p>
+    <textarea id="examples" class="log"></textarea>
+  </body>
 </html>

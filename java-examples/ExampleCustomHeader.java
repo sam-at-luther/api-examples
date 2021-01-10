@@ -10,6 +10,8 @@ import com.algorand.algosdk.algod.client.model.NodeStatus;
 public class CustomHeaderExample {
 
     public static void main(String[] args) {
+        // DEPRECATED 12/30/20 with Algod v1 API Shutdown
+
         final String ALGOD_API_ADDR = "https://testnet-algorand.api.purestake.io/ps1";
                 
         AlgodClient client = new AlgodClient();

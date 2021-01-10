@@ -5,6 +5,8 @@
 // define custom additional header, and create a new algod client using
 // a special function for this case: MakeClientWithHeaders.
 
+// DEPRECATED 12/30/20 with Algod v1 API Shutdown
+
 package main
 
 import (

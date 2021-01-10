@@ -9,6 +9,8 @@ import (
 	"github.com/algorand/go-algorand-sdk/transaction"
 )
 
+// DEPRECATED 12/30/20 with Algod v1 API Shutdown
+
 const algodAddress = "https://testnet-algorand.api.purestake.io/ps1"
 const psToken = "......"
 
