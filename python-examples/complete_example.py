@@ -2,6 +2,9 @@
 # In 1.4.0 it is no longer necessary to declare the content type of the send_transaction
 # headers={'content-type': 'application/x-binary'}
 
+# DEPRECATED 12/30/20 with Algod v1 API Shutdown
+
+
 import json
 import time
 import base64

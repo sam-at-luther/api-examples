@@ -21,6 +21,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class SubmitTx {
 
 	public static void main(String[] args) throws GeneralSecurityException {
+        // DEPRECATED 12/30/20 with Algod v1 API Shutdown
+
 		final String ALGOD_API_ADDR = "https://testnet-algorand.api.purestake.io/ps1";
         final String ALGOD_API_TOKEN = "YOUR API KEY";
         

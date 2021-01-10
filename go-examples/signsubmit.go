@@ -15,6 +15,9 @@ import (
 // const algodToken = "ef920e2e7e002953f4b29a8af720efe8e4ecc75ff102b165e0472834b25832c1"
 
 // your own node
+
+// DEPRECATED 12/30/20 with Algod v1 API Shutdown
+
 const algodAddress = "https://testnet-algorand.api.purestake.io/ps1"
 const psToken = "..."
 

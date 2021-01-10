@@ -7,6 +7,8 @@
 // Example using PureStake token object 
 //
 
+// DEPRECATED 12/30/20 with Algod v1 API Shutdown
+
 const algosdk = require('algosdk');
 const baseServer = "https://testnet-algorand.api.purestake.io/ps1"
 const port = "";
