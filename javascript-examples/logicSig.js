@@ -11,7 +11,7 @@
 // The TestNet account in this example is U2VHSZL3LNGATL3IBCXFCPBTYSXYZBW2J4OGMPLTA4NA2CB4PR7AW7C77E - PureStake cannot guarantee any funds will exist to execute this example
 // To add Algo's - https://bank.testnet.algorand.network
 
-// DEPRECATED 12/30/20 with Algod v1 API Shutdown
+// Updated for v2 1/20/21 
 
 
 const algosdk = require('algosdk');
