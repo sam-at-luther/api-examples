@@ -12,10 +12,10 @@ As of December 30th the Algod v1 API has been shut down and all v1 examples will
 
 ## Example using Algorand JavaScript SDK
 
-- [GET v2 Assets - Indexer](javascript-examples/v2/indexer_asset_search.js)
-- [GET v2 Indexer Block](javascript-examples/v2/indexer_block.js)
-- [POST v2 Transaction](javascript-examples/v2/algod_submit_tx.js)
-- [GET v2 Transaction - Indexer](javascript-examples/v2/indexer_txn_search.js)
+- [GET v2 Assets - Indexer](javascript-examples/indexer_asset_search.js)
+- [GET v2 Indexer Block](javascript-examples/indexer_block.js)
+- [POST v2 Transaction](javascript-examples/algod_submit_tx.js)
+- [GET v2 Transaction - Indexer](javascript-examples/indexer_txn_search.js)
 
 ## Example using HTML and Algodsdk.min.js
 
@@ -28,15 +28,15 @@ As of December 30th the Algod v1 API has been shut down and all v1 examples will
 
 ## Example using Algorand Go SDK
 
-- [GET v2](go-examples/v2/example_custom_header.go)
-- [GET v2 Indexer](go-examples/v2/indexer_search_asset.go)
-- [POST v2 Transaction](go-examples/v2/submit_tx.go)
+- [GET v2](go-examples/example_custom_header.go)
+- [GET v2 Indexer](go-examples/indexer_search_asset.go)
+- [POST v2 Transaction](go-examples/submit_tx.go)
 
 ## Example using Algorand Java SDK
 
-- [GET v2](java-examples/v2/ExampleCustomHeader.java)
-- [GET v2 Indexer](java-examples/v2/IndexerAssetSearch.java)
-- [POST v2 Transaction](java-examples/v2/SubmitTx.java)
+- [GET v2](java-examples/ExampleCustomHeader.java)
+- [GET v2 Indexer](java-examples/IndexerAssetSearch.java)
+- [POST v2 Transaction](java-examples/SubmitTx.java)
 
 ## Other Resources
 
