@@ -21,7 +21,6 @@ const token = {
     'X-API-key': 'B3SU4KcVKi94Jap2VXkK83xx38bsv95K5UZm2lab',
 }
 
-
 const algodclient = new algosdk.Algodv2(token, baseServer, port);
 
 var mnemonic = "code thrive mouse code badge example pride stereo sell viable adjust planet text close erupt embrace nature upon february weekend humble surprise shrug absorb faint";

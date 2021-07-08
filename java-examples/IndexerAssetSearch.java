@@ -11,7 +11,7 @@ public class IndexerAssetSearch {
         final String IDX_API_TOKEN = "B3SU4KcVKi94Jap2VXkK83xx38bsv95K5UZm2lab";
 
         IndexerClient client = new IndexerClient(IDX_API_ADDR, IDX_PORT, IDX_API_TOKEN, IDX_API_TOKEN_KEY);
-        
+
         String name = "test";
         Long limit = 1L;
         String response = client.searchForAssets().name(name).limit(limit).execute().toString();
