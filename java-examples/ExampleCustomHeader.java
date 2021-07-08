@@ -1,45 +1,37 @@
 package com.purestake.algosdk.example;
 
-import java.math.BigInteger;
-
-import com.algorand.algosdk.algod.client.AlgodClient;
-import com.algorand.algosdk.algod.client.api.AlgodApi;
-import com.algorand.algosdk.algod.client.model.Block;
-import com.algorand.algosdk.algod.client.model.NodeStatus;
+import com.algorand.algosdk.v2.client.common.AlgodClient;
+import com.algorand.algosdk.v2.client.model.NodeStatusResponse;
+import com.algorand.algosdk.v2.client.model.BlockResponse;
 
 public class CustomHeaderExample {
 
-    public static void main(String[] args) {
-        // DEPRECATED 12/30/20 with Algod v1 API Shutdown
+    public static void main(String[] args) throws Exception {
+        final String ALGOD_API_ADDR = "https://testnet-algorand.api.purestake.io/ps2";
+        final int  ALGOD_PORT = 443;
+        final String ALGOD_API_TOKEN_KEY = "X-API-Key";
+        final String ALGOD_API_TOKEN = "B3SU4KcVKi94Jap2VXkK83xx38bsv95K5UZm2lab";
 
-        final String ALGOD_API_ADDR = "https://testnet-algorand.api.purestake.io/ps1";
-                
-        AlgodClient client = new AlgodClient();
-        
-        client.addDefaultHeader("X-API-Key", "......");
-        
-        client.setBasePath(ALGOD_API_ADDR);
+        AlgodClient client = new AlgodClient(ALGOD_API_ADDR, ALGOD_PORT, ALGOD_API_TOKEN, ALGOD_API_TOKEN_KEY);
 
-        AlgodApi algodApiInstance = new AlgodApi(client);
-        
-        NodeStatus status = null;
-        
+        NodeStatusResponse status = null;
+
         try {
-            status = algodApiInstance.getStatus();
+            status = client.GetStatus().execute().body();
         } catch (Exception e) {
             System.err.print("Failed to get algod status: " + e.getMessage());
         }
-        
+
         if(status!=null) {
-            System.out.println("algod last round: " + status.getLastRound());
-            System.out.println("algod time since last round: " + status.getTimeSinceLastRound());
-            System.out.println("algod catchup: " + status.getCatchupTime());
-            System.out.println("algod latest version: " + status.getLastConsensusVersion());
-            
-            BigInteger lastRound = status.getLastRound();
+            System.out.println("algod last round: " + status.lastRound);
+            System.out.println("algod time since last round: " + status.timeSinceLastRound);
+            System.out.println("algod catchup: " + status.catchupTime);
+            System.out.println("algod latest version: " + status.lastVersion);
+
+            Long lastRound = status.lastRound;
             try {
-                Block block = algodApiInstance.getBlock(lastRound);
-                System.out.println("Block info: " + block.toString());
+                BlockResponse block = client.GetBlock(lastRound).execute().body();
+                System.out.println("Block info: " + block.block);
             } catch (Exception e) {
                 System.err.print("Failed to get block info: " + e.getMessage());
             }

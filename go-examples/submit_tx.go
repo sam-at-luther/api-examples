@@ -2,72 +2,92 @@ package main
 
 import (
 	"fmt"
+	"context"
 
-	"github.com/algorand/go-algorand-sdk/client/algod"
+    "github.com/algorand/go-algorand-sdk/client/v2/algod"
+    "github.com/algorand/go-algorand-sdk/client/v2/common"
 	"github.com/algorand/go-algorand-sdk/crypto"
 	"github.com/algorand/go-algorand-sdk/mnemonic"
-	"github.com/algorand/go-algorand-sdk/transaction"
 )
+import transaction "github.com/algorand/go-algorand-sdk/future"
 
-// DEPRECATED 12/30/20 with Algod v1 API Shutdown
 
-const algodAddress = "https://testnet-algorand.api.purestake.io/ps1"
-const psToken = "......"
-
-// Initalize throw-away account for this example - check that is has funds before running the program.
-const fromAddr = "U2VHSZL3LNGATL3IBCXFCPBTYSXYZBW2J4OGMPLTA4NA2CB4PR7AW7C77E"
-const mn = "code thrive mouse code badge example pride stereo sell viable adjust planet text close erupt embrace nature upon february weekend humble surprise shrug absorb faint"
-
-const toAddr = "AEC4WDHXCDF4B5LBNXXRTB3IJTVJSWUZ4VJ4THPU2QGRJGTA3MIDFN3CQA"
+// Function from Algorand Inc. - utility for waiting on a transaction confirmation
+func waitForConfirmation(txID string, client *algod.Client) {
+	status, err := client.Status().Do(context.Background())
+	if err != nil {
+		fmt.Printf("error getting algod status: %s\n", err)
+		return
+	}
+	lastRound := status.LastRound
+	for {
+		pt, _, err := client.PendingTransactionInformation(txID).Do(context.Background())
+		if err != nil {
+			fmt.Printf("error getting pending transaction: %s\n", err)
+			return
+		}
+		if pt.ConfirmedRound > 0 {
+			fmt.Printf("Transaction confirmed in round %d\n", pt.ConfirmedRound)
+			break
+		}
+		fmt.Printf("Waiting for confirmation...\n")
+		lastRound++
+		status, err = client.StatusAfterBlock(lastRound).Do(context.Background())
+	}
+}
 
 func main() {
-	// Create an algod client
-	var headers []*algod.Header
-	headers = append(headers, &algod.Header{"X-API-Key", psToken})
-	algodClient, err := algod.MakeClientWithHeaders(algodAddress, "", headers)
-	if err != nil {
-		fmt.Printf("failed to make algod client: %s\n", err)
-		return
-	}
-	fmt.Println("Algod client created")
+	const algodAddress = "https://testnet-algorand.api.purestake.io/ps2"
+	const psTokenKey = "X-API-Key"
+	const psToken = "B3SU4KcVKi94Jap2VXkK83xx38bsv95K5UZm2lab"
 
-	// Recover private key from the mnemonic
+	const fromAddr = "UDCFS2TSVK5MM5A3GH4WLZDNGZE4CJT2AOTADUB7MZKW72CXPRZAHKVTVU"
+	const mn = "cool online brush identify bean nuclear elder soft fashion mind inside drama camp excess captain window spare oxygen tonight kingdom sustain pigeon predict ability rail"
+	const toAddr = "ZHGZZQ2PIWYRK6MIK44GKO3VGQUC7NS2V3UQ63M3DIMFUFGI4BRWK7WDBU"
+
 	fromAddrPvtKey, err := mnemonic.ToPrivateKey(mn)
 	if err != nil {
-		fmt.Printf("error getting suggested tx params: %s\n", err)
+		fmt.Printf("error recovering private key: %s\n", err)
 		return
 	}
-	fmt.Println("Private key recovered from mnemonic")
+
+	commonClient, err := common.MakeClient(algodAddress, psTokenKey, psToken)
+	if err != nil {
+		fmt.Printf("failed to make common client: %s\n", err)
+		return
+	}
+	algodClient := (*algod.Client)(commonClient)
 
 	// Get the suggested transaction parameters
-	txParams, err := algodClient.SuggestedParams()
+	txParams, err := algodClient.SuggestedParams().Do(context.Background())
 	if err != nil {
 		fmt.Printf("error getting suggested tx params: %s\n", err)
 		return
 	}
+	note := []byte(nil)
+	closeRemainderTo := ""
+	amount := uint64(10000)
 
 	// Make transaction
-	genID := txParams.GenesisID
-	tx, err := transaction.MakePaymentTxn(fromAddr, toAddr, 1, 100000, txParams.LastRound, txParams.LastRound+100, nil, "", genID, txParams.GenesisHash)
+	txn, err := transaction.MakePaymentTxn(fromAddr, toAddr, amount, note, closeRemainderTo, txParams)
 	if err != nil {
 		fmt.Printf("Error creating transaction: %s\n", err)
 		return
 	}
 
 	// Sign the Transaction
-	_, bytes, err := crypto.SignTransaction(fromAddrPvtKey, tx)
+	_, bytes, err := crypto.SignTransaction(fromAddrPvtKey, txn)
 	if err != nil {
 		fmt.Printf("Failed to sign transaction: %s\n", err)
 		return
 	}
 
 	// Broadcast the transaction to the network
-	txHeaders := append([]*algod.Header{}, &algod.Header{"Content-Type", "application/x-binary"})
-	sendResponse, err := algodClient.SendRawTransaction(bytes, txHeaders...)
+	sendResponse, err := algodClient.SendRawTransaction(bytes).Do(context.Background())
 	if err != nil {
 		fmt.Printf("failed to send transaction: %s\n", err)
 		return
 	}
-
-	fmt.Printf("Transaction successful with ID: %s\n", sendResponse.TxID)
+	fmt.Printf("Transaction sent with ID %s\n", sendResponse)
+	waitForConfirmation(sendResponse, algodClient)
 }
