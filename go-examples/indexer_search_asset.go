@@ -9,7 +9,6 @@ import (
 	"github.com/algorand/go-algorand-sdk/client/v2/indexer"
 )
 
-
 func main() {
 	const algodAddress = "https://testnet-algorand.api.purestake.io/idx2"
 	const psTokenKey = "X-API-Key"
